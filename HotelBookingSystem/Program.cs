@@ -1,4 +1,9 @@
 ﻿// Susing System;
+using HotelBookingSystem;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace HotelBookingSystem
 {
     public class Program
