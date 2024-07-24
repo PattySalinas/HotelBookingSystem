@@ -381,7 +381,7 @@ namespace HotelBookingSystem
                 string name = Console.ReadLine();
                 Customer customer = new Customer(customerId, name);
                 hotel.AddCustomer(customer);
-                Console.WriteLine("Customer added successfully.");
+                Console.WriteLine("Customer added successfully: " + $"Customer ID: {customer.CustomerId}" + " | "+$"Name: {customer.Name}");
             }
             catch (FormatException ex)
             {
@@ -546,37 +546,30 @@ namespace HotelBookingSystem
                 Console.Clear();
                 Console.WriteLine("===== List of Bookings =====");
 
-                if (hotel == null || hotel.Bookings == null || hotel.Bookings.Count == 0)
+                if (hotel == null)
+                {
+                    Console.WriteLine("Hotel instance is null.");
+                    return;
+                }
+
+                if (hotel.Bookings == null || hotel.Bookings.Count == 0)
                 {
                     Console.WriteLine("No bookings available.");
                     return;
                 }
 
-                bool anyValidBookings = false;
+                // Optional: Sort bookings by CheckInDate or any other criteria
+                hotel.Bookings.Sort((b1, b2) => b1.CheckInDate.CompareTo(b2.CheckInDate));
 
                 foreach (var booking in hotel.Bookings)
                 {
-                    if (booking == null || booking.Customer == null || booking.Room == null)
-                    {
-                        Console.WriteLine("Incomplete booking information.");
-                        continue;
-                    }
-
-                    // At least one valid booking found
-                    anyValidBookings = true;
-
                     Console.WriteLine($"Booking ID: {booking.BookingID}");
-                    Console.WriteLine($"Customer: {booking.Customer.Name}");
-                    Console.WriteLine($"Room Number: {booking.Room.RoomNumber}");
-                    Console.WriteLine($"Check-in Date: {booking.CheckInDate:yyyy-MM-dd}");
-                    Console.WriteLine($"Check-out Date: {booking.CheckOutDate:yyyy-MM-dd}");
+                    Console.WriteLine($"Customer: {booking.Customer?.Name ?? "N/A"}");
+                    Console.WriteLine($"Room: {booking.Room?.GetRoomType() ?? "N/A"}");
                     Console.WriteLine($"Status: {booking.Status}");
-                    Console.WriteLine("=================================");
-                    Console.WriteLine(); // Blank line for readability
-                }
-                if (!anyValidBookings)
-                {
-                    Console.WriteLine("No valid bookings found.");
+                    Console.WriteLine($"Total Price: {booking.TotalPrice:C}");
+                    Console.WriteLine($"Expected Nights: {booking.ExpectedNights}");
+                    Console.WriteLine(new string('-', 40)); // Separator
                 }
             }
             catch (FormatException ex)
