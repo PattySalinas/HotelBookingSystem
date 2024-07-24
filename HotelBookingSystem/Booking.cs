@@ -50,7 +50,7 @@ namespace HotelBookingSystem
             int numberOfNights = (CheckOutDate - CheckInDate).Days;
             TotalPrice = numberOfNights * Room.Price;
 
-            // Apply penalty if stayed more than expected nights
+            // Apply discount if stayed more than expected nights
             if (numberOfNights > ExpectedNights)
             {
                 decimal penalty = (numberOfNights - ExpectedNights) * (Room.Price * 0.5m); // 50% penalty
