@@ -12,12 +12,15 @@ namespace HotelBookingSystem
         public decimal Price { get; set; }
         public bool IsAvailable { get; set; }
 
-        protected Room(int roomNumber, decimal price, bool isAvailable)
+        public Room(int roomNumber, decimal price, bool isAvailable)
         {
             RoomNumber = roomNumber;
             Price = price;
             IsAvailable = isAvailable;
         }
+
+        public abstract string GetRoomType();
     }
+
 
 }
