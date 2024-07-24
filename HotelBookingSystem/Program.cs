@@ -426,7 +426,7 @@ namespace HotelBookingSystem
 
                 if (customer == null || room == null || !room.IsAvailable)
                 {
-                    Console.WriteLine("Invalid customer or room details.");
+                    Console.WriteLine("Invalid customer or room details. Room may not be available on the selected dates");
                     return;
                 }
 
@@ -434,7 +434,7 @@ namespace HotelBookingSystem
                 booking.CalculateTotalPrice();
                 hotel.BookRoom(booking);
 
-                Console.WriteLine($"Room booked successfully. Total Price: {booking.TotalPrice:C}");
+                Console.WriteLine($"Room booked successfully. Enjoy your stay! Total Price: {booking.TotalPrice:C}");
             }
             catch (FormatException ex)
             {
