@@ -18,31 +18,46 @@ namespace HotelBookingSystem
 
                 while (true)
                 {
-                    Console.WriteLine("Hotel Booking System");
+                    Console.Clear(); // Clear the console for a fresh look
+                    Console.WriteLine("=====================================");
+                    Console.WriteLine("    Welcome to the Hotel Booking System");
+                    Console.WriteLine("=====================================");
                     Console.WriteLine("1. Rooms");
                     Console.WriteLine("2. Customers");
                     Console.WriteLine("3. Booking");
                     Console.WriteLine("4. Exit");
+                    Console.WriteLine("=====================================");
                     Console.Write("Select an option: ");
-                    int option = int.Parse(Console.ReadLine());
 
-                    switch (option)
+                    if (int.TryParse(Console.ReadLine(), out int option))
                     {
-                        case 1:
-                            HandleRoomMenu(hotel);
-                            break;
-                        case 2:
-                            HandleCustomerMenu(hotel);
-                            break;
-                        case 3:
-                            HandleBookingMenu(hotel);
-                            break;
-                        case 4:
-                            return; // Exit the program
-                        default:
-                            Console.WriteLine("Invalid option. Please try again.");
-                            break;
+                        switch (option)
+                        {
+                            case 1:
+                                HandleRoomMenu(hotel);
+                                break;
+                            case 2:
+                                HandleCustomerMenu(hotel);
+                                break;
+                            case 3:
+                                HandleBookingMenu(hotel);
+                                break;
+                            case 4:
+                                Console.WriteLine("Exiting... Thank you for using the Hotel Booking System.");
+                                return; // Exit the program
+                            default:
+                                Console.WriteLine("Invalid option. Please select a number between 1 and 4.");
+                                break;
+                        }
                     }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter a number.");
+                    }
+
+                    // Pause for the user to see the message
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadKey();
                 }
             }
             catch (FormatException ex)
@@ -59,26 +74,35 @@ namespace HotelBookingSystem
         {
             try
             {
+                Console.Clear();
+                Console.WriteLine("===== Room Menu =====");
                 Console.WriteLine("1. Add Room");
                 Console.WriteLine("2. Remove Room");
                 Console.WriteLine("3. List Rooms");
+                Console.WriteLine("======================");
                 Console.Write("Select an option: ");
-                int option = int.Parse(Console.ReadLine());
 
-                switch (option)
+                if (int.TryParse(Console.ReadLine(), out int option))
                 {
-                    case 1:
-                        AddRoom(hotel);
-                        break;
-                    case 2:
-                        RemoveRoom(hotel);
-                        break;
-                    case 3:
-                        ListRooms(hotel);
-                        break;
-                    default:
-                        Console.WriteLine("Invalid option. Please try again.");
-                        break;
+                    switch (option)
+                    {
+                        case 1:
+                            AddRoom(hotel);
+                            break;
+                        case 2:
+                            RemoveRoom(hotel);
+                            break;
+                        case 3:
+                            ListRooms(hotel);
+                            break;
+                        default:
+                            Console.WriteLine("Invalid option. Please try again.");
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid number.");
                 }
             }
             catch (FormatException ex)
@@ -95,27 +119,35 @@ namespace HotelBookingSystem
         {
             try
             {
+                Console.Clear();
+                Console.WriteLine("===== Customer Menu =====");
                 Console.WriteLine("1. Add Customer");
                 Console.WriteLine("2. Remove Customer");
                 Console.WriteLine("3. List Customers");
+                Console.WriteLine("==========================");
                 Console.Write("Select an option: ");
-                int option = int.Parse(Console.ReadLine());
 
-                // Implement customer menu actions
-                switch (option)
+                if (int.TryParse(Console.ReadLine(), out int option))
                 {
-                    case 1:
-                        AddCustomer(hotel);
-                        break;
-                    case 2:
-                        RemoveCustomer(hotel);
-                        break;
-                    case 3:
-                        ListCustomers(hotel);
-                        break;
-                    default:
-                        Console.WriteLine("Invalid option. Please try again.");
-                        break;
+                    switch (option)
+                    {
+                        case 1:
+                            AddCustomer(hotel);
+                            break;
+                        case 2:
+                            RemoveCustomer(hotel);
+                            break;
+                        case 3:
+                            ListCustomers(hotel);
+                            break;
+                        default:
+                            Console.WriteLine("Invalid option. Please try again.");
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid number.");
                 }
             }
             catch (FormatException ex)
@@ -132,39 +164,47 @@ namespace HotelBookingSystem
         {
             try
             {
+                Console.Clear();
+                Console.WriteLine("===== Booking Menu =====");
                 Console.WriteLine("1. Book Room");
                 Console.WriteLine("2. Checkout Room");
                 Console.WriteLine("3. List Bookings");
                 Console.WriteLine("4. List Available Rooms");
                 Console.WriteLine("5. List Available Rooms by Bed Size");
                 Console.WriteLine("6. List Past Bookings");
+                Console.WriteLine("=========================");
                 Console.Write("Select an option: ");
-                int option = int.Parse(Console.ReadLine());
 
-                // Implement booking menu actions
-                switch (option)
+                if (int.TryParse(Console.ReadLine(), out int option))
                 {
-                    case 1:
-                        BookRoom(hotel);
-                        break;
-                    case 2:
-                        CheckoutRoom(hotel);
-                        break;
-                    case 3:
-                        ListBookings(hotel);
-                        break;
-                    case 4:
-                        ListAvailableRooms(hotel);
-                        break;
-                    case 5:
-                        ListAvailableRoomsByBedSize(hotel);
-                        break;
-                    case 6:
-                        ListPastBookings(hotel);
-                        break;
-                    default:
-                        Console.WriteLine("Invalid option. Please try again.");
-                        break;
+                    switch (option)
+                    {
+                        case 1:
+                            BookRoom(hotel);
+                            break;
+                        case 2:
+                            CheckoutRoom(hotel);
+                            break;
+                        case 3:
+                            ListBookings(hotel);
+                            break;
+                        case 4:
+                            ListAvailableRooms(hotel);
+                            break;
+                        case 5:
+                            ListAvailableRoomsByBedSize(hotel);
+                            break;
+                        case 6:
+                            ListPastBookings(hotel);
+                            break;
+                        default:
+                            Console.WriteLine("Invalid option. Please try again.");
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid number.");
                 }
             }
             catch (FormatException ex)
@@ -181,8 +221,10 @@ namespace HotelBookingSystem
         {
             try
             {
+                Console.Clear();
+                Console.WriteLine("===== Add Room =====");
                 Console.Write("Enter Room Type (Single, Double, Suite): ");
-                string roomType = Console.ReadLine();
+                string roomType = Console.ReadLine().Trim();
                 Console.Write("Enter Room Number: ");
                 int roomNumber = int.Parse(Console.ReadLine());
                 Console.Write("Enter Price: ");
@@ -240,15 +282,15 @@ namespace HotelBookingSystem
         {
             try
             {
+                Console.Clear();
+                Console.WriteLine("===== Remove Room =====");
                 Console.Write("Enter Room Number to Remove: ");
                 int roomNumberToRemove = int.Parse(Console.ReadLine());
 
-                // Find the room to remove
                 Room roomToRemove = hotel.Rooms.FirstOrDefault(r => r.RoomNumber == roomNumberToRemove);
 
                 if (roomToRemove != null)
                 {
-                    // Check if the room is currently booked
                     bool isBooked = hotel.Bookings.Any(b => b.Room.RoomNumber == roomNumberToRemove && b.Status == "Active");
 
                     if (isBooked)
@@ -257,7 +299,6 @@ namespace HotelBookingSystem
                     }
                     else
                     {
-                        // Remove the room from the list
                         hotel.Rooms.Remove(roomToRemove);
                         Console.WriteLine("Room removed successfully.");
                     }
@@ -281,7 +322,8 @@ namespace HotelBookingSystem
         {
             try
             {
-                Console.WriteLine("List of Rooms:");
+                Console.Clear();
+                Console.WriteLine("===== List of Rooms =====");
 
                 if (hotel.Rooms.Count == 0)
                 {
@@ -296,7 +338,6 @@ namespace HotelBookingSystem
                     Console.WriteLine($"Price: {room.Price:C}");
                     Console.WriteLine($"Availability: {(room.IsAvailable ? "Available" : "Not Available")}");
 
-                    // Display additional details based on room type
                     if (room is SingleRoom singleRoom)
                     {
                         Console.WriteLine($"Bed Size: {singleRoom.BedSize}");
@@ -310,12 +351,12 @@ namespace HotelBookingSystem
                     }
                     else if (room is Suite suite)
                     {
-                        Console.WriteLine($"Living Area Size: {suite.LivingAreaSize} sqm");
+                        Console.WriteLine($"Living Area Size: {suite.LivingAreaSize} sq meters");
                         Console.WriteLine($"Has Jacuzzi: {(suite.HasJacuzzi ? "Yes" : "No")}");
                         Console.WriteLine($"Number of Rooms: {suite.NumberOfRooms}");
                     }
 
-                    Console.WriteLine(); // Blank line for readability
+                    Console.WriteLine("=================================");
                 }
             }
             catch (FormatException ex)
@@ -332,6 +373,8 @@ namespace HotelBookingSystem
         {
             try
             {
+                Console.Clear();
+                Console.WriteLine("===== Add Customer =====");
                 Console.Write("Enter Customer ID: ");
                 int customerId = int.Parse(Console.ReadLine());
                 Console.Write("Enter Customer Name: ");
@@ -354,6 +397,8 @@ namespace HotelBookingSystem
         {
             try
             {
+                Console.Clear();
+                Console.WriteLine("===== Remove Customer =====");
                 Console.Write("Enter Customer ID to Remove: ");
                 int customerId = int.Parse(Console.ReadLine());
 
@@ -361,6 +406,7 @@ namespace HotelBookingSystem
 
                 if (customerToRemove != null)
                 {
+                    
                     hotel.RemoveCustomer(customerId);
                     Console.WriteLine("Customer removed successfully.");
                 }
@@ -383,12 +429,19 @@ namespace HotelBookingSystem
         {
             try
             {
-                Console.WriteLine("List of Customers:");
+                Console.Clear();
+                Console.WriteLine("===== List of Customers =====");
 
                 if (hotel.Customers.Count == 0)
                 {
                     Console.WriteLine("No customers available.");
                     return;
+                }
+
+                foreach (var customer in hotel.Customers)
+                {
+                    Console.WriteLine($"Customer ID: {customer.CustomerId}" + $"Name: {customer.Name}");
+                    Console.WriteLine("=================================");
                 }
 
                 foreach (var customer in hotel.Customers)
@@ -412,6 +465,8 @@ namespace HotelBookingSystem
         {
             try
             {
+                Console.Clear();
+                Console.WriteLine("===== Book Room =====");
                 Console.Write("Enter Customer ID: ");
                 int customerId = int.Parse(Console.ReadLine());
                 Console.Write("Enter Room Number: ");
@@ -424,9 +479,15 @@ namespace HotelBookingSystem
                 Customer customer = hotel.Customers.FirstOrDefault(c => c.CustomerId == customerId);
                 Room room = hotel.Rooms.FirstOrDefault(r => r.RoomNumber == roomNumber);
 
-                if (customer == null || room == null || !room.IsAvailable)
+                if (customer == null)
                 {
-                    Console.WriteLine("Invalid customer or room details. Room may not be available on the selected dates");
+                    Console.WriteLine("Customer not found.");
+                    return;
+                }
+
+                if (room == null || !room.IsAvailable)
+                {
+                    Console.WriteLine("Room not available.");
                     return;
                 }
 
@@ -434,7 +495,7 @@ namespace HotelBookingSystem
                 booking.CalculateTotalPrice();
                 hotel.BookRoom(booking);
 
-                Console.WriteLine($"Room booked successfully. Enjoy your stay! Total Price: {booking.TotalPrice:C}");
+                Console.WriteLine($"Room booked successfully. Enjoy your stay!");
             }
             catch (FormatException ex)
             {
@@ -450,12 +511,23 @@ namespace HotelBookingSystem
         {
             try
             {
-                Console.Write("Enter Booking ID to Checkout: ");
-                int bookingID = int.Parse(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine("===== Checkout Room =====");
+                Console.Write("Enter Room Number: ");
+                int roomNumber = int.Parse(Console.ReadLine());
 
-                hotel.CheckoutRoom(bookingID);
+                Booking booking = hotel.Bookings.FirstOrDefault(b => b.Room.RoomNumber == roomNumber && b.Status == "Active");
 
-                Console.WriteLine("Room checked out successfully.");
+                if (booking != null)
+                {
+                    booking.Status = "Checked Out";
+                    booking.Room.IsAvailable = true;
+                    Console.WriteLine("Room checked out successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("No active booking found for this room.");
+                }
             }
             catch (FormatException ex)
             {
@@ -471,23 +543,40 @@ namespace HotelBookingSystem
         {
             try
             {
-                Console.WriteLine("List of Bookings:");
+                Console.Clear();
+                Console.WriteLine("===== List of Bookings =====");
 
-                if (hotel.Bookings.Count == 0)
+                if (hotel == null || hotel.Bookings == null || hotel.Bookings.Count == 0)
                 {
                     Console.WriteLine("No bookings available.");
                     return;
                 }
 
+                bool anyValidBookings = false;
+
                 foreach (var booking in hotel.Bookings)
                 {
+                    if (booking == null || booking.Customer == null || booking.Room == null)
+                    {
+                        Console.WriteLine("Incomplete booking information.");
+                        continue;
+                    }
+
+                    // At least one valid booking found
+                    anyValidBookings = true;
+
                     Console.WriteLine($"Booking ID: {booking.BookingID}");
                     Console.WriteLine($"Customer: {booking.Customer.Name}");
                     Console.WriteLine($"Room Number: {booking.Room.RoomNumber}");
-                    Console.WriteLine($"Check-in Date: {booking.CheckInDate.ToShortDateString()}");
-                    Console.WriteLine($"Check-out Date: {booking.CheckOutDate.ToShortDateString()}");
+                    Console.WriteLine($"Check-in Date: {booking.CheckInDate:yyyy-MM-dd}");
+                    Console.WriteLine($"Check-out Date: {booking.CheckOutDate:yyyy-MM-dd}");
                     Console.WriteLine($"Status: {booking.Status}");
+                    Console.WriteLine("=================================");
                     Console.WriteLine(); // Blank line for readability
+                }
+                if (!anyValidBookings)
+                {
+                    Console.WriteLine("No valid bookings found.");
                 }
             }
             catch (FormatException ex)
@@ -500,11 +589,13 @@ namespace HotelBookingSystem
             }
         }
 
+
         static void ListAvailableRooms(Hotel hotel)
         {
             try
             {
-                Console.WriteLine("List of Available Rooms:");
+                Console.Clear();
+                Console.WriteLine("===== List of Available Rooms =====");
 
                 var availableRooms = hotel.Rooms.Where(r => r.IsAvailable).ToList();
 
@@ -519,6 +610,7 @@ namespace HotelBookingSystem
                     Console.WriteLine($"Room Number: {room.RoomNumber}");
                     Console.WriteLine($"Type: {room.GetType().Name}");
                     Console.WriteLine($"Price: {room.Price:C}");
+                    Console.WriteLine("=================================");
                     Console.WriteLine(); // Blank line for readability
                 }
             }
@@ -536,15 +628,14 @@ namespace HotelBookingSystem
         {
             try
             {
-                Console.Write("Enter Bed Size to Filter (e.g., King, Queen): ");
+                Console.Clear();
+                Console.WriteLine("===== List Available Rooms by Bed Size =====");
+                Console.Write("Enter Bed Size: ");
                 string bedSize = Console.ReadLine();
 
                 var availableRooms = hotel.Rooms
-                    .Where(r => r.IsAvailable && (r is SingleRoom sr && sr.BedSize.Equals(bedSize, StringComparison.OrdinalIgnoreCase)
-                                                 || r is DoubleRoom dr && dr.BedSize.Equals(bedSize, StringComparison.OrdinalIgnoreCase)))
+                    .Where(r => r is SingleRoom singleRoom && singleRoom.BedSize.Equals(bedSize, StringComparison.OrdinalIgnoreCase) && r.IsAvailable)
                     .ToList();
-
-                Console.WriteLine($"List of Available Rooms with Bed Size '{bedSize}':");
 
                 if (availableRooms.Count == 0)
                 {
@@ -555,9 +646,8 @@ namespace HotelBookingSystem
                 foreach (var room in availableRooms)
                 {
                     Console.WriteLine($"Room Number: {room.RoomNumber}");
-                    Console.WriteLine($"Type: {room.GetType().Name}");
                     Console.WriteLine($"Price: {room.Price:C}");
-                    Console.WriteLine(); // Blank line for readability
+                    Console.WriteLine("=================================");
                 }
             }
             catch (FormatException ex)
@@ -574,7 +664,8 @@ namespace HotelBookingSystem
         {
             try
             {
-                Console.WriteLine("List of Past Bookings:");
+                Console.Clear();
+                Console.WriteLine("===== List of Past Bookings =====");
 
                 var pastBookings = hotel.Bookings
                     .Where(b => b.CheckOutDate < DateTime.Now)
@@ -594,6 +685,7 @@ namespace HotelBookingSystem
                     Console.WriteLine($"Check-in Date: {booking.CheckInDate.ToShortDateString()}");
                     Console.WriteLine($"Check-out Date: {booking.CheckOutDate.ToShortDateString()}");
                     Console.WriteLine($"Status: {booking.Status}");
+                    Console.WriteLine("=================================");
                     Console.WriteLine(); // Blank line for readability
                 }
             }
@@ -617,8 +709,8 @@ namespace HotelBookingSystem
                 hotel.AddRoom(new DoubleRoom(102, 150, "Queen", true, 2));
                 hotel.AddRoom(new Suite(103, 300, 50.0, true, 3));
 
-                hotel.AddCustomer(new Customer(1, "John Doe"));
-                hotel.AddCustomer(new Customer(2, "Jane Smith"));
+                hotel.AddCustomer(new Customer(1, "Fulano Perez"));
+                hotel.AddCustomer(new Customer(2, "Mengana Perez"));
             }
             catch (FormatException ex)
             {
