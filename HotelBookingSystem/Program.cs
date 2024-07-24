@@ -13,7 +13,7 @@ namespace HotelBookingSystem
             try
             {
                 Hotel hotel = new Hotel();
-                //Add some test data for demo
+                //Add some test data for demo Wednesday July 24
                 AddTestData(hotel);
 
                 while (true)
