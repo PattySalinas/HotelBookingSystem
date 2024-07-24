@@ -5,6 +5,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <BaseOutputPath>C:\Users\patricia.salinas\source\repos\PattySalinas\HotelBookingSystem\HotelBookingSystem\bin\Debug</BaseOutputPath>
   </PropertyGroup>
 
 </Project>

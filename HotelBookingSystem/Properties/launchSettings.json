@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "HotelBookingSystem": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\patricia.salinas\\source\\repos\\PattySalinas\\HotelBookingSystem\\HotelBookingSystem\\bin\\Debug",
+      "nativeDebugging": false
+    }
+  }
+}

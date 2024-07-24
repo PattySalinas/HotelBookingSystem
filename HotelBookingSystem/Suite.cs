@@ -20,7 +20,7 @@ namespace HotelBookingSystem
             NumberOfRooms = numberOfRooms;
         }
 
-        public Suite(int roomNumber, decimal price, double livingAreaSize, bool hasJacuzzi, int numberOfRooms)
+        public Suite(int roomNumber, decimal price, double livingAreaSize, bool hasJacuzzi, int numberOfRooms) : base(roomNumber, price, hasJacuzzi)
         {
             RoomNumber = roomNumber;
             Price = price;

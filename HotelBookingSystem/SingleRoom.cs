@@ -18,7 +18,7 @@ namespace HotelBookingSystem
             HasBalcony = hasBalcony;
         }
 
-        public SingleRoom(int roomNumber, decimal price, string? bedSize, bool hasBalcony)
+        public SingleRoom(int roomNumber, decimal price, string? bedSize, bool hasBalcony) : base(roomNumber, price, hasBalcony)
         {
             RoomNumber = roomNumber;
             Price = price;

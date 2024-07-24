@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,8 +23,9 @@ namespace HotelBookingSystem
             NumberOfBeds = numberOfBeds;
         }
 
-        public DoubleRoom(int v1, decimal v2, string v3, bool v4, int v5)
+        public DoubleRoom(int v1, decimal v2, string v3, bool v4, int v5) : base(v1, v2, v4)
         {
+
         }
 
         public DoubleRoom(int roomNumber, decimal price, bool isAvailable, string? doubleBedSize, int numberOfBeds) : base(roomNumber, price, isAvailable)
